@@ -11,6 +11,7 @@
     tools:context="com.andromeeda.project.firebaselogin.MainActivity">
 
     <EditText
+        android:id="@+id/login_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -23,6 +24,7 @@
         android:textColorHighlight="@color/white"/>
 
     <EditText
+        android:id="@+id/login_pswd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -62,10 +64,10 @@
             android:drawablePadding="6dp"
             android:padding="4dp"/>
 
-
     </LinearLayout>
 
     <Button
+        android:id="@+id/login_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Log In"
@@ -78,6 +80,7 @@
         android:background="@drawable/shapelogin"/>
 
     <Button
+        android:id="@+id/login_signup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Sign Up"
