@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg"
+    android:background="@color/bg2"
     android:orientation="vertical"
     android:gravity="center"
     android:padding="20dp"
@@ -85,6 +85,6 @@
         android:layout_marginLeft="10dp"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="0dp"
-        android:background="@drawable/shapesignup"
+        android:background="@drawable/buttonlogin"
         android:textColor="@color/white"/>
 </LinearLayout>
