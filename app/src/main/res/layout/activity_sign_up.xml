@@ -11,30 +11,6 @@
     tools:context="com.andromeeda.project.firebaselogin.SignUp">
 
     <EditText
-        android:id="@+id/signup_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:padding="15dp"
-        android:background="@drawable/shapeemail"
-        android:drawablePadding="10dp"
-        android:hint="Name"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:textColorHighlight="@color/white"/>
-    <EditText
-        android:id="@+id/signup_mobile"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:padding="15dp"
-        android:background="@drawable/shapeemail"
-        android:drawablePadding="10dp"
-        android:hint="Mobile"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:textColorHighlight="@color/white"/>
-    <EditText
         android:id="@+id/signup_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
