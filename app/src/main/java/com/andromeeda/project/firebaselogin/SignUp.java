@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -19,6 +20,7 @@ public class SignUp extends AppCompatActivity {
     Button signUp,login;
     EditText mail,pswd;
     FirebaseAuth firebaseAuth;
+    private ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +30,7 @@ public class SignUp extends AppCompatActivity {
         login = findViewById(R.id.signup_login);
         mail = findViewById(R.id.signup_email);
         pswd = findViewById(R.id.signup_pswd);
+        progressBar = findViewById(R.id.progressBar);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +58,7 @@ public class SignUp extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Password too short, enter minimum 6 characters!", Toast.LENGTH_SHORT).show();
                 }
 
+                progressBar.setVisibility(View.VISIBLE);
                 firebaseAuth.createUserWithEmailAndPassword(email,password)
                         .addOnCompleteListener(SignUp.this, new OnCompleteListener<AuthResult>() {
                             @Override
@@ -71,5 +75,10 @@ public class SignUp extends AppCompatActivity {
                         });
             }
         });
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        progressBar.setVisibility(View.GONE);
     }
 }
