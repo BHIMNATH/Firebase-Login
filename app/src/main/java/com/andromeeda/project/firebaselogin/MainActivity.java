@@ -24,6 +24,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        firebaseAuth = FirebaseAuth.getInstance();
+//        if (firebaseAuth.getCurrentUser() != null) { // If already logged in
+//            startActivity(new Intent(MainActivity.this, Home.class));
+//            finish();
+//        }
+
         setContentView(R.layout.activity_main);
         login = findViewById(R.id.login_login);
         signup = findViewById(R.id.login_signup);
@@ -31,10 +37,6 @@ public class MainActivity extends AppCompatActivity {
         pswd = findViewById(R.id.login_pswd);
         progressBar = findViewById(R.id.progressBar);
         firebaseAuth = FirebaseAuth.getInstance();
-        if (firebaseAuth.getCurrentUser() != null) { // If already logged in
-            startActivity(new Intent(MainActivity.this, Home.class));
-            finish();
-        }
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                                 progressBar.setVisibility(View.GONE);
                                 if(!task.isSuccessful()){
                                     if(password.length() < 6){
-                                        mail.setError("Password too short, enter minimum 6 characters!");
+                                        pswd.setError("Password too short, enter minimum 6 characters!");
                                     }
                                     else {
                                         Toast.makeText(MainActivity.this, "Login failed!", Toast.LENGTH_LONG).show();
@@ -64,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
                                 }
                                 else {
                                     startActivity(new Intent(MainActivity.this, Home.class));
-                                    finish();
                                 }
                             }
                         });
@@ -76,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, SignUp.class);
                 startActivity(intent);
-                finish();
             }
         });
     }
