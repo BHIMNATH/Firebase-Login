@@ -26,6 +26,9 @@ public class SignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
+        //Get Firebase auth instance
+        firebaseAuth = FirebaseAuth.getInstance();
+
         signUp = findViewById(R.id.signup_signup);
         login = findViewById(R.id.signup_login);
         mail = findViewById(R.id.signup_email);
@@ -63,13 +66,17 @@ public class SignUp extends AppCompatActivity {
                         .addOnCompleteListener(SignUp.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                Toast.makeText(SignUp.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
-                                if(!task.isSuccessful()){
-                                    Toast.makeText(SignUp.this, "Authentication failed." + task.getException(),Toast.LENGTH_LONG).show();
+                                try {
+                                    Toast.makeText(SignUp.this, "Created Account Successfully", Toast.LENGTH_SHORT).show();
+                                    if (!task.isSuccessful()) {
+                                        Toast.makeText(SignUp.this, "Authentication failed.", Toast.LENGTH_LONG).show();
+                                    } else {
+                                        startActivity(new Intent(SignUp.this, MainActivity.class));
+                                        finish();
+                                    }
                                 }
-                                else {
-                                    startActivity(new Intent(SignUp.this,MainActivity.class));
-                                    finish();
+                                catch(Exception e){
+                                    e.printStackTrace();
                                 }
                             }
                         });
@@ -80,5 +87,10 @@ public class SignUp extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         progressBar.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }

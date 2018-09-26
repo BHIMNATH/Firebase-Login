@@ -12,6 +12,8 @@
 
     <EditText
         android:id="@+id/signup_email"
+        android:inputType="textEmailAddress"
+        android:ems="10"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -25,6 +27,7 @@
 
     <EditText
         android:id="@+id/signup_pswd"
+        android:inputType="textPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
